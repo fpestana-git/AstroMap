@@ -1,0 +1,26 @@
+---
+title: "AstroMap App"
+format: html
+editor: visual
+execute:
+  echo: false
+  freeze: false
+  eval: true
+---
+
+## Interactive Gene Table
+
+```{r}
+
+library(shiny)
+
+library(DT)
+
+# Example: your gene data
+
+# Load your data from RDS
+genes <- readRDS("DEgenes.rds")
+
+# Show the interactive table
+datatable(genes, options = list(pageLength = 10, searchHighlight = TRUE))
+```

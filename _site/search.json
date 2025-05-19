@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AstroMap App",
+    "section": "",
+    "text": "Warning: package 'shiny' was built under R version 4.3.3\n\n\n\nAttaching package: 'DT'\n\n\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable"
+  },
+  {
+    "objectID": "index.html#interactive-gene-table",
+    "href": "index.html#interactive-gene-table",
+    "title": "AstroMap App",
+    "section": "",
+    "text": "Warning: package 'shiny' was built under R version 4.3.3\n\n\n\nAttaching package: 'DT'\n\n\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
