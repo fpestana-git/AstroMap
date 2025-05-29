@@ -8,13 +8,34 @@ execute:
   eval: true
 ---
 
+## Spatial transcriptomics - Visium
+```{r}
+
+library(shiny,verbose = F)
+library(ggplot2, verbose = F)
+library(DT,verbose = F)
+library(ggh4x, verbose = F)
+
+coronal_metadata <- readRDS("cor1_metadata.rds")
+
+min_x_coord <- min(coronal_metadata$x_coords)
+max_x_coord <- max(coronal_metadata$x_coords)
+min_y_coord <- min(coronal_metadata$y_coords)
+max_y_coord <- max(coronal_metadata$y_coords)
+x_coord_dim <- max_x_coord - min_x_coord
+y_coord_dim <- max_y_coord - min_y_coord
+ratio_dim <- y_coord_dim/x_coord_dim
+
+p <- ggplot(coronal_metadata,aes(x = y_coords,y = -x_coords,colour = tissueRegion_L3_color)) + geom_point(size = 0.2) + force_panelsizes(rows = unit(5,"cm"),cols = unit(5*ratio_dim,"cm")) + theme_void() + theme(legend.position = "none")
+
+p
+```
+
+
 ## Interactive Gene Table
 
 ```{r}
 
-library(shiny)
-
-library(DT)
 
 # Example: your gene data
 

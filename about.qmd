@@ -2,8 +2,4 @@
 title: "About"
 ---
 
-About this site
-
-```{r}
-1 + 1
-```
+This website accompanies AstroMap, a recent attempt to map astrocyte diversity in the adult mouse brain.

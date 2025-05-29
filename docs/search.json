@@ -4,20 +4,27 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This website accompanies AstroMap, a recent attempt to map astrocyte diversity in the adult mouse brain."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "AstroMap App",
     "section": "",
-    "text": "Warning: package 'shiny' was built under R version 4.3.3\n\n\n\nAttaching package: 'DT'\n\n\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable"
+    "text": "Warning: package 'shiny' was built under R version 4.3.3\n\n\n\nAttaching package: 'DT'\n\n\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable\n\n\n\nAttaching package: 'ggh4x'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    guide_axis_logticks"
   },
   {
     "objectID": "index.html#interactive-gene-table",
     "href": "index.html#interactive-gene-table",
     "title": "AstroMap App",
+    "section": "Interactive Gene Table",
+    "text": "Interactive Gene Table"
+  },
+  {
+    "objectID": "index.html#spatial-transcriptomics---visium",
+    "href": "index.html#spatial-transcriptomics---visium",
+    "title": "AstroMap App",
     "section": "",
-    "text": "Warning: package 'shiny' was built under R version 4.3.3\n\n\n\nAttaching package: 'DT'\n\n\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable"
+    "text": "Warning: package 'shiny' was built under R version 4.3.3\n\n\n\nAttaching package: 'DT'\n\n\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable\n\n\n\nAttaching package: 'ggh4x'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    guide_axis_logticks"
   }
 ]
