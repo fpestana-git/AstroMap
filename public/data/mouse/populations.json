@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ASTRO-CTX-1",
+    "name": "ASTRO-CTX-1",
+    "region": "Isocortex",
+    "nCells": 42811,
+    "description": "Astrocyte population enriched across cortical regions.",
+    "markers": ["Aqp4", "Slc1a3", "Gja1", "Aldoc"]
+  },
+  {
+    "id": "ASTRO-CTX-2",
+    "name": "ASTRO-CTX-2",
+    "region": "Isocortex",
+    "nCells": 36154,
+    "description": "A second cortical astrocyte population with a distinct transcriptional profile.",
+    "markers": ["Gja1", "Slc1a3", "S100b", "Glul"]
+  },
+  {
+    "id": "ASTRO-HPF-1",
+    "name": "ASTRO-HPF-1",
+    "region": "Hippocampal formation",
+    "nCells": 28492,
+    "description": "Astrocyte population associated with the hippocampal formation.",
+    "markers": ["Aqp4", "Slc1a3", "Aldoc", "Gfap"]
+  },
+  {
+    "id": "ASTRO-CNU-1",
+    "name": "ASTRO-CNU-1",
+    "region": "Cerebral nuclei",
+    "nCells": 19638,
+    "description": "Astrocyte population enriched in cerebral nuclei.",
+    "markers": ["Aqp4", "Gja1", "Glul", "S100b"]
+  },
+  {
+    "id": "ASTRO-TH-1",
+    "name": "ASTRO-TH-1",
+    "region": "Thalamus",
+    "nCells": 17325,
+    "description": "Astrocyte population associated with thalamic regions.",
+    "markers": ["Aqp4", "Slc1a3", "Gfap", "Aldoc"]
+  }
+]

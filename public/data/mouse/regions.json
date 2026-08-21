@@ -1,0 +1,47 @@
+[
+  {
+    "id": "Isocortex",
+    "name": "Isocortex",
+    "abbreviation": "CTX",
+    "nCells": 214563,
+    "nPopulations": 8,
+    "description": "Cortical astrocyte populations distributed across isocortical regions.",
+    "topPopulations": ["ASTRO-CTX-1", "ASTRO-CTX-2"]
+  },
+  {
+    "id": "Hippocampal-formation",
+    "name": "Hippocampal formation",
+    "abbreviation": "HPF",
+    "nCells": 98421,
+    "nPopulations": 5,
+    "description": "Astrocyte diversity across hippocampal and related structures.",
+    "topPopulations": ["ASTRO-HPF-1"]
+  },
+  {
+    "id": "Cerebral-nuclei",
+    "name": "Cerebral nuclei",
+    "abbreviation": "CNU",
+    "nCells": 76234,
+    "nPopulations": 4,
+    "description": "Astrocyte populations associated with striatal and pallidal structures.",
+    "topPopulations": ["ASTRO-CNU-1"]
+  },
+  {
+    "id": "Thalamus",
+    "name": "Thalamus",
+    "abbreviation": "TH",
+    "nCells": 58762,
+    "nPopulations": 4,
+    "description": "Astrocyte populations distributed across thalamic nuclei.",
+    "topPopulations": ["ASTRO-TH-1"]
+  },
+  {
+    "id": "Hypothalamus",
+    "name": "Hypothalamus",
+    "abbreviation": "HY",
+    "nCells": 49318,
+    "nPopulations": 4,
+    "description": "Astrocyte diversity across hypothalamic structures.",
+    "topPopulations": []
+  }
+]

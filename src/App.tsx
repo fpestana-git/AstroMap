@@ -1,0 +1,150 @@
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import './App.css'
+
+import MouseAtlas from './pages/MouseAtlas'
+import HumanAtlas from './pages/HumanAtlas'
+import MouseGenes from './pages/MouseGenes'
+import MousePopulations from './pages/MousePopulations'
+import MousePopulationDetail from './pages/MousePopulationDetail'
+import MouseRegions from './pages/MouseRegions'
+import MouseRegionDetail from './pages/MouseRegionDetail'
+import MouseSpatial from './pages/MouseSpatial'
+
+function HomePage() {
+  const navigate = useNavigate()
+
+  return (
+    <div className="app">
+      <header className="navbar">
+        <div className="logo">AstroMap</div>
+
+<nav>
+  <button onClick={() => navigate('/mouse')}>
+    Mouse atlas
+  </button>
+
+  <button onClick={() => navigate('/human')}>
+    Human atlas
+  </button>
+
+  <button
+    onClick={() =>
+      document
+        .getElementById('about')
+        ?.scrollIntoView({ behavior: 'smooth' })
+    }
+  >
+    About
+  </button>
+</nav>
+      </header>
+
+      <main>
+        <section className="hero">
+          <p className="eyebrow">Mouse & human astrocyte atlas</p>
+
+          <h1>AstroMap</h1>
+
+          <p className="subtitle">
+            A transcriptomic and spatial resource to explore astrocyte
+            heterogeneity across the mouse and human brain.
+          </p>
+
+          <div className="hero-buttons">
+            <button onClick={() => navigate('/mouse')}>
+              Explore mouse atlas
+            </button>
+
+            <button onClick={() => navigate('/human')}>
+              Explore human atlas
+            </button>
+          </div>
+        </section>
+
+        <section className="species-selector">
+          <article className="species-card">
+            <span className="species-label">Mouse</span>
+
+            <h2>Mouse Astrocyte Atlas</h2>
+
+            <p>
+              Explore transcriptomic and spatial astrocyte diversity across
+              the mouse brain.
+            </p>
+
+            <button onClick={() => navigate('/mouse')}>
+              Enter mouse atlas <span>→</span>
+            </button>
+          </article>
+
+          <article className="species-card">
+            <span className="species-label">Human</span>
+
+            <h2>Human Astrocyte Atlas</h2>
+
+            <p>
+              Explore astrocyte diversity across human brain datasets,
+              regions and transcriptional states.
+            </p>
+
+            <button onClick={() => navigate('/human')}>
+              Enter human atlas <span>→</span>
+            </button>
+          </article>
+        </section>
+
+        <section className="stats">
+          <div>
+            <strong>800,000+</strong>
+            <span>Astrocytes</span>
+          </div>
+
+          <div>
+            <strong>6+</strong>
+            <span>Single-cell studies</span>
+          </div>
+
+          <div>
+            <strong>18</strong>
+            <span>Spatial sections</span>
+          </div>
+        </section>
+
+
+      </main>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/mouse" element={<MouseAtlas />} />
+      <Route path="/mouse/genes" element={<MouseGenes />} />
+      <Route
+        path="/mouse/populations"
+        element={<MousePopulations />}
+      />
+      <Route
+        path="/mouse/populations/:populationId"
+        element={<MousePopulationDetail />}
+      />
+      <Route
+        path="/mouse/regions"
+        element={<MouseRegions />}
+      />
+      <Route
+        path="/mouse/regions/:regionId"
+        element={<MouseRegionDetail />}
+      />
+      <Route
+        path="/mouse/spatial"
+        element={<MouseSpatial />}
+      />
+      <Route path="/human" element={<HumanAtlas />} />
+    </Routes>
+  )
+}
+
+export default App

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sagittal-01",
+    "name": "Sagittal 01",
+    "orientation": "Sagittal",
+    "technology": "Visium",
+    "species": "Mouse",
+    "sectionNumber": 1
+  },
+  {
+    "id": "sagittal-02",
+    "name": "Sagittal 02",
+    "orientation": "Sagittal",
+    "technology": "Visium",
+    "species": "Mouse",
+    "sectionNumber": 2
+  },
+  {
+    "id": "coronal-01",
+    "name": "Coronal 01",
+    "orientation": "Coronal",
+    "technology": "Visium",
+    "species": "Mouse",
+    "sectionNumber": 1
+  }
+]
