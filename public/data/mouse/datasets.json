@@ -1,0 +1,46 @@
+[
+  {
+    "id": "study-01",
+    "name": "Study 01",
+    "year": 2021,
+    "technology": "10x Chromium",
+    "assay": "snRNA-seq",
+    "nCells": 184532,
+    "nLibraries": 42,
+    "coverage": "Whole brain",
+    "reference": "Example reference"
+  },
+  {
+    "id": "study-02",
+    "name": "Study 02",
+    "year": 2022,
+    "technology": "10x Chromium",
+    "assay": "snRNA-seq",
+    "nCells": 146821,
+    "nLibraries": 31,
+    "coverage": "Multiple brain regions",
+    "reference": "Example reference"
+  },
+  {
+    "id": "study-03",
+    "name": "Study 03",
+    "year": 2023,
+    "technology": "10x Chromium",
+    "assay": "scRNA-seq",
+    "nCells": 121504,
+    "nLibraries": 24,
+    "coverage": "Whole brain",
+    "reference": "Example reference"
+  },
+  {
+    "id": "spatial-study",
+    "name": "Spatial transcriptomics",
+    "year": 2024,
+    "technology": "10x Visium",
+    "assay": "Spatial transcriptomics",
+    "nCells": 0,
+    "nLibraries": 18,
+    "coverage": "Whole-brain sections",
+    "reference": "Example reference"
+  }
+]

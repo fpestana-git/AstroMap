@@ -75,7 +75,9 @@ function MousePopulationDetail() {
           <button onClick={() => navigate('/mouse/spatial')}>
             Spatial
           </button>
-          <button>Datasets</button>
+          <button onClick={() => navigate('/mouse/datasets')}>
+            Datasets
+          </button>
         </nav>
       </header>
 

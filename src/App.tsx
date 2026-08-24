@@ -9,6 +9,7 @@ import MousePopulationDetail from './pages/MousePopulationDetail'
 import MouseRegions from './pages/MouseRegions'
 import MouseRegionDetail from './pages/MouseRegionDetail'
 import MouseSpatial from './pages/MouseSpatial'
+import MouseDatasets from './pages/MouseDatasets'
 
 function HomePage() {
   const navigate = useNavigate()
@@ -141,6 +142,10 @@ function App() {
       <Route
         path="/mouse/spatial"
         element={<MouseSpatial />}
+      />
+      <Route
+        path="/mouse/datasets"
+        element={<MouseDatasets />}
       />
       <Route path="/human" element={<HumanAtlas />} />
     </Routes>
