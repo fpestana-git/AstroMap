@@ -1,14 +1,6 @@
+import type { SpatialSection } from '../types/atlas'
 import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
-
-type SpatialSection = {
-  id: string
-  name: string
-  orientation: string
-  technology: string
-  species: string
-  sectionNumber: number
-}
 
 function MouseSpatial() {
   

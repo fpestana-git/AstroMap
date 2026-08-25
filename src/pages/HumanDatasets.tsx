@@ -1,17 +1,6 @@
+import type { Dataset } from '../types/atlas'
 import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
-
-type Dataset = {
-  id: string
-  name: string
-  year: number
-  technology: string
-  assay: string
-  nCells: number
-  nLibraries: number
-  coverage: string
-  reference: string
-}
 
 function HumanDatasets() {
 

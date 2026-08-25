@@ -1,22 +1,8 @@
+import type { GeneDatabase } from '../types/atlas'
 import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-
-type ExpressionEntry = {
-  name: string
-  expression: number
-}
-
-type GeneData = {
-  description: string
-  meanExpression: number
-  percentExpressed: number
-  populations: ExpressionEntry[]
-  regions: ExpressionEntry[]
-}
-
-type GeneDatabase = Record<string, GeneData>
 
 function MouseGenes() {
   const [searchParams, setSearchParams] = useSearchParams()

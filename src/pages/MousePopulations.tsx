@@ -1,15 +1,8 @@
+import type { Population } from '../types/atlas'
 import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-type Population = {
-  id: string
-  name: string
-  region: string
-  nCells: number
-  description: string
-  markers: string[]
-}
 
 function MousePopulations() {
   const navigate = useNavigate()
