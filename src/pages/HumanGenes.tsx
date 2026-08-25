@@ -109,7 +109,9 @@ function HumanGenes() {
           </button>
 
           <button>Genes</button>
-          <button>Populations</button>
+          <button onClick={() => navigate('/human/populations')}>
+            Populations
+          </button>
           <button onClick={() => navigate('/human/regions')}>
             Brain regions
           </button>

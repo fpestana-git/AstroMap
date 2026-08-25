@@ -15,7 +15,9 @@ function HumanAtlas() {
           <button onClick={() => navigate('/human/genes')}>
             Genes
           </button>
-          <button>Populations</button>
+          <button onClick={() => navigate('/human/populations')}>
+            Populations
+          </button>
           <button onClick={() => navigate('/human/regions')}>
             Brain regions
           </button>
@@ -63,7 +65,7 @@ function HumanAtlas() {
               states and marker genes.
             </p>
 
-            <button>
+            <button onClick={() => navigate('/human/populations')}>
               Explore populations <span>→</span>
             </button>
           </article>
