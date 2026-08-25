@@ -23,7 +23,17 @@ function HomePage() {
   return (
     <div className="app">
       <header className="navbar">
-        <div className="logo">AstroMap</div>
+        <button
+          className="logo-button"
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            })
+          }
+        >
+          AstroMap
+        </button>
 
 <nav>
   <button onClick={() => navigate('/mouse')}>
@@ -79,6 +89,14 @@ function HomePage() {
               the mouse brain.
             </p>
 
+            <ul className="species-features">
+              <li>Gene Explorer</li>
+              <li>Astrocyte populations</li>
+              <li>Brain regions</li>
+              <li>Spatial atlas</li>
+              <li>Datasets</li>
+            </ul>
+
             <button onClick={() => navigate('/mouse')}>
               Enter mouse atlas <span>→</span>
             </button>
@@ -94,26 +112,42 @@ function HomePage() {
               regions and transcriptional states.
             </p>
 
+            <ul className="species-features">
+              <li>Gene Explorer</li>
+              <li>Astrocyte populations</li>
+              <li>Brain regions</li>
+              <li>Datasets</li>
+            </ul>
+
             <button onClick={() => navigate('/human')}>
               Enter human atlas <span>→</span>
             </button>
           </article>
         </section>
 
-        <section className="stats">
-          <div>
-            <strong>800,000+</strong>
-            <span>Astrocytes</span>
-          </div>
+        <section className="about-section" id="about">
+          <div className="about-content">
+            <div>
+              <p className="section-eyebrow">About AstroMap</p>
 
-          <div>
-            <strong>6+</strong>
-            <span>Single-cell studies</span>
-          </div>
+              <h2>
+                A unified resource for exploring astrocyte diversity
+              </h2>
+            </div>
 
-          <div>
-            <strong>18</strong>
-            <span>Spatial sections</span>
+            <div className="about-text">
+              <p>
+                AstroMap integrates single-cell and spatial transcriptomic
+                datasets to provide a unified view of astrocyte heterogeneity
+                across the mouse and human brain.
+              </p>
+
+              <p>
+                The atlas enables exploration of gene expression, astrocyte
+                populations, anatomical distributions and the datasets
+                contributing to each atlas.
+              </p>
+            </div>
           </div>
         </section>
 

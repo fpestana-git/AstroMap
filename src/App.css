@@ -211,6 +211,35 @@ nav button.active {
     border-color 0.25s ease;
 }
 
+.species-features {
+  margin: 24px 0 28px;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 18px;
+
+  list-style: none;
+}
+
+.species-features li {
+  position: relative;
+  padding-left: 16px;
+
+  color: #606b7c;
+  font-size: 0.88rem;
+}
+
+.species-features li::before {
+  content: '•';
+
+  position: absolute;
+  left: 0;
+
+  color: #6654d9;
+  font-weight: 700;
+}
+
 .species-card:hover {
   transform: translateY(-5px);
   border-color: #cec6f5;
@@ -1319,6 +1348,43 @@ nav button.active {
   color: #5f697a;
 }
 
+/* About */
+
+.about-section {
+  padding: 110px 6% 120px;
+
+  background: #ffffff;
+  border-top: 1px solid #e7ebf0;
+}
+
+.about-content {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.about-content h2 {
+  max-width: 520px;
+  margin: 0;
+
+  color: #172033;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+}
+
+.about-text p {
+  margin: 0 0 20px;
+
+  color: #697386;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
 /* Mobile */
 
 @media (max-width: 800px) {
@@ -1368,6 +1434,9 @@ nav button.active {
 
   .species-card {
     min-height: 240px;
+  }
+  .species-features {
+    grid-template-columns: 1fr;
   }
     .atlas-hero {
     padding: 80px 7% 70px;
@@ -1428,5 +1497,13 @@ nav button.active {
   }
   .dataset-grid {
     grid-template-columns: 1fr;
+  }
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-section {
+    padding: 80px 7%;
   }
 }
