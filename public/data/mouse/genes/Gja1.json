@@ -1,0 +1,19 @@
+{
+  "description": "Gap junction protein alpha 1",
+  "meanExpression": 2.37,
+  "percentExpressed": 72.4,
+  "populations": [
+    { "name": "ASTRO-CTX-2", "expression": 3.5 },
+    { "name": "ASTRO-CTX-1", "expression": 3.2 },
+    { "name": "ASTRO-CNU-1", "expression": 2.8 },
+    { "name": "ASTRO-HPF-1", "expression": 2.4 },
+    { "name": "ASTRO-TH-1", "expression": 1.9 }
+  ],
+  "regions": [
+    { "name": "Isocortex", "expression": 3.3 },
+    { "name": "Cerebral nuclei", "expression": 2.8 },
+    { "name": "Hippocampal formation", "expression": 2.5 },
+    { "name": "Thalamus", "expression": 2.0 },
+    { "name": "Hypothalamus", "expression": 1.7 }
+  ]
+}

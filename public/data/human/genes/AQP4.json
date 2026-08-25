@@ -1,0 +1,15 @@
+{
+  "description": "Aquaporin 4",
+  "meanExpression": 3.76,
+  "percentExpressed": 84.3,
+  "populations": [
+    { "name": "ASTRO-1", "expression": 4.7 },
+    { "name": "ASTRO-2", "expression": 4.0 },
+    { "name": "ASTRO-3", "expression": 3.5 }
+  ],
+  "regions": [
+    { "name": "Prefrontal cortex", "expression": 4.2 },
+    { "name": "Hippocampus", "expression": 3.8 },
+    { "name": "Temporal cortex", "expression": 3.4 }
+  ]
+}

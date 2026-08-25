@@ -1,82 +1,116 @@
-import type { GeneDatabase } from '../types/atlas'
-import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
+import AtlasNavbar from '../components/AtlasNavbar'
+import type { GeneData } from '../types/atlas'
 
 function HumanGenes() {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const geneFromUrl = searchParams.get('gene') || ''
 
-  const [genes, setGenes] = useState<GeneDatabase>({})
+  const [geneIndex, setGeneIndex] = useState<string[]>([])
   const [query, setQuery] = useState(geneFromUrl)
   const [selectedGene, setSelectedGene] = useState<string | null>(null)
+  const [geneData, setGeneData] = useState<GeneData | null>(null)
+
+  const [loadingIndex, setLoadingIndex] = useState(true)
+  const [loadingGene, setLoadingGene] = useState(false)
+
   const [notFound, setNotFound] = useState(false)
-  const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
-    async function loadGenes() {
+    async function loadGeneIndex() {
       try {
         const response = await fetch(
-          `${import.meta.env.BASE_URL}data/human/genes.json`,
+          `${import.meta.env.BASE_URL}data/human/gene_index.json`,
         )
 
         if (!response.ok) {
-          throw new Error('Could not load human gene data')
+          throw new Error('Could not load gene index')
         }
 
-        const data: GeneDatabase = await response.json()
+        const data: string[] = await response.json()
 
-        setGenes(data)
-        setLoading(false)
+        setGeneIndex(data)
+        setLoadingIndex(false)
       } catch (error) {
         console.error(error)
         setLoadError(true)
-        setLoading(false)
+        setLoadingIndex(false)
       }
     }
 
-    loadGenes()
+    loadGeneIndex()
   }, [])
 
+  async function loadGene(gene: string) {
+    try {
+      setLoadingGene(true)
+      setNotFound(false)
+      setGeneData(null)
+
+      const response = await fetch(
+        `${import.meta.env.BASE_URL}data/human/genes/${encodeURIComponent(
+          gene,
+        )}.json`,
+      )
+
+      if (!response.ok) {
+        throw new Error(`Could not load gene ${gene}`)
+      }
+
+      const data: GeneData = await response.json()
+
+      setSelectedGene(gene)
+      setGeneData(data)
+      setLoadingGene(false)
+    } catch (error) {
+      console.error(error)
+      setSelectedGene(null)
+      setGeneData(null)
+      setNotFound(true)
+      setLoadingGene(false)
+    }
+  }
+
   useEffect(() => {
-    if (loading || !geneFromUrl) {
+    if (loadingIndex || !geneFromUrl) {
       return
     }
 
-    const match = Object.keys(genes).find(
+    const match = geneIndex.find(
       (gene) => gene.toLowerCase() === geneFromUrl.toLowerCase(),
     )
 
     if (match) {
       setQuery(match)
-      setSelectedGene(match)
-      setNotFound(false)
+      loadGene(match)
+    } else {
+      setSelectedGene(null)
+      setGeneData(null)
+      setNotFound(true)
     }
-  }, [genes, geneFromUrl, loading])
+  }, [geneIndex, geneFromUrl, loadingIndex])
 
   function handleSearch() {
-    const match = Object.keys(genes).find(
+    const match = geneIndex.find(
       (gene) => gene.toLowerCase() === query.trim().toLowerCase(),
     )
 
     if (match) {
-      setSelectedGene(match)
-      setNotFound(false)
       setSearchParams({ gene: match })
     } else {
       setSelectedGene(null)
+      setGeneData(null)
       setNotFound(true)
     }
   }
 
-  const geneData = selectedGene ? genes[selectedGene] : null
-
   const suggestions =
     query.length > 0
-      ? Object.keys(genes)
+      ? geneIndex
           .filter((gene) =>
             gene.toLowerCase().startsWith(query.toLowerCase()),
           )
@@ -104,7 +138,7 @@ function HumanGenes() {
                 type="text"
                 placeholder="Search gene, e.g. AQP4"
                 value={query}
-                disabled={loading || loadError}
+                disabled={loadingIndex || loadError}
                 onChange={(event) => setQuery(event.target.value)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter') {
@@ -115,9 +149,13 @@ function HumanGenes() {
 
               <button
                 onClick={handleSearch}
-                disabled={loading || loadError}
+                disabled={loadingIndex || loadError || loadingGene}
               >
-                {loading ? 'Loading...' : 'Search'}
+                {loadingIndex
+                  ? 'Loading...'
+                  : loadingGene
+                    ? 'Loading gene...'
+                    : 'Search'}
               </button>
             </div>
 
@@ -128,8 +166,6 @@ function HumanGenes() {
                     key={gene}
                     onClick={() => {
                       setQuery(gene)
-                      setSelectedGene(gene)
-                      setNotFound(false)
                       setSearchParams({ gene })
                     }}
                   >
@@ -143,7 +179,13 @@ function HumanGenes() {
 
         {loadError && (
           <div className="gene-not-found">
-            Human gene data could not be loaded.
+            Human gene index could not be loaded.
+          </div>
+        )}
+
+        {loadingGene && (
+          <div className="gene-not-found">
+            Loading gene data...
           </div>
         )}
 

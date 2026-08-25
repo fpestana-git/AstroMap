@@ -1,89 +1,123 @@
-import type { GeneDatabase } from '../types/atlas'
-import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
+import AtlasNavbar from '../components/AtlasNavbar'
+import type { GeneData } from '../types/atlas'
 
 function MouseGenes() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const [genes, setGenes] = useState<GeneDatabase>({})
+
   const geneFromUrl = searchParams.get('gene') || ''
 
+  const [geneIndex, setGeneIndex] = useState<string[]>([])
   const [query, setQuery] = useState(geneFromUrl)
   const [selectedGene, setSelectedGene] = useState<string | null>(null)
+  const [geneData, setGeneData] = useState<GeneData | null>(null)
+
+  const [loadingIndex, setLoadingIndex] = useState(true)
+  const [loadingGene, setLoadingGene] = useState(false)
 
   const [notFound, setNotFound] = useState(false)
-  const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
-    async function loadGenes() {
+    async function loadGeneIndex() {
       try {
         const response = await fetch(
-          `${import.meta.env.BASE_URL}data/mouse/genes.json`,
+          `${import.meta.env.BASE_URL}data/mouse/gene_index.json`,
         )
 
         if (!response.ok) {
-          throw new Error('Could not load gene data')
+          throw new Error('Could not load gene index')
         }
 
-        const data: GeneDatabase = await response.json()
+        const data: string[] = await response.json()
 
-        setGenes(data)
-        setLoading(false)
+        setGeneIndex(data)
+        setLoadingIndex(false)
       } catch (error) {
         console.error(error)
         setLoadError(true)
-        setLoading(false)
+        setLoadingIndex(false)
       }
     }
 
-    loadGenes()
+    loadGeneIndex()
   }, [])
 
+  async function loadGene(gene: string) {
+    try {
+      setLoadingGene(true)
+      setNotFound(false)
+      setGeneData(null)
+
+      const response = await fetch(
+        `${import.meta.env.BASE_URL}data/mouse/genes/${encodeURIComponent(
+          gene,
+        )}.json`,
+      )
+
+      if (!response.ok) {
+        throw new Error(`Could not load gene ${gene}`)
+      }
+
+      const data: GeneData = await response.json()
+
+      setSelectedGene(gene)
+      setGeneData(data)
+      setLoadingGene(false)
+    } catch (error) {
+      console.error(error)
+      setSelectedGene(null)
+      setGeneData(null)
+      setNotFound(true)
+      setLoadingGene(false)
+    }
+  }
+
   useEffect(() => {
-  if (loading || !geneFromUrl) {
-    return
-  }
+    if (loadingIndex || !geneFromUrl) {
+      return
+    }
 
-  const match = Object.keys(genes).find(
-    (gene) => gene.toLowerCase() === geneFromUrl.toLowerCase(),
-  )
+    const match = geneIndex.find(
+      (gene) => gene.toLowerCase() === geneFromUrl.toLowerCase(),
+    )
 
-  if (match) {
-    setQuery(match)
-    setSelectedGene(match)
-    setNotFound(false)
-  }
-}, [genes, geneFromUrl, loading])
+    if (match) {
+      setQuery(match)
+      loadGene(match)
+    } else {
+      setSelectedGene(null)
+      setGeneData(null)
+      setNotFound(true)
+    }
+  }, [geneIndex, geneFromUrl, loadingIndex])
 
   function handleSearch() {
-    const match = Object.keys(genes).find(
+    const match = geneIndex.find(
       (gene) => gene.toLowerCase() === query.trim().toLowerCase(),
     )
 
     if (match) {
-      setSelectedGene(match)
-      setNotFound(false)
       setSearchParams({ gene: match })
     } else {
       setSelectedGene(null)
+      setGeneData(null)
       setNotFound(true)
     }
   }
 
-  const geneData = selectedGene ? genes[selectedGene] : null
+  const suggestions =
+    query.length > 0
+      ? geneIndex
+          .filter((gene) =>
+            gene.toLowerCase().startsWith(query.toLowerCase()),
+          )
+          .slice(0, 8)
+      : []
 
-const suggestions =
-  query.length > 0
-    ? Object.keys(genes)
-        .filter((gene) =>
-          gene.toLowerCase().startsWith(query.toLowerCase()),
-        )
-        .slice(0, 8)
-    : []
-
-return (
+  return (
     <div className="atlas-page">
       <AtlasNavbar species="mouse" />
 
@@ -99,51 +133,59 @@ return (
           </p>
 
           <div className="gene-search-wrapper">
-          <div className="gene-search">
-            <input
-              type="text"
-              placeholder="Search gene, e.g. Aqp4"
-              value={query}
-              disabled={loading || loadError}
-              onChange={(event) => setQuery(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  handleSearch()
-                }
-              }}
-            />
+            <div className="gene-search">
+              <input
+                type="text"
+                placeholder="Search gene, e.g. Aqp4"
+                value={query}
+                disabled={loadingIndex || loadError}
+                onChange={(event) => setQuery(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    handleSearch()
+                  }
+                }}
+              />
 
-            <button
-              onClick={handleSearch}
-              disabled={loading || loadError}
-            >
-              {loading ? 'Loading...' : 'Search'}
-            </button>
+              <button
+                onClick={handleSearch}
+                disabled={loadingIndex || loadError || loadingGene}
+              >
+                {loadingIndex
+                  ? 'Loading...'
+                  : loadingGene
+                    ? 'Loading gene...'
+                    : 'Search'}
+              </button>
+            </div>
+
+            {suggestions.length > 0 && (
+              <div className="gene-suggestions">
+                {suggestions.map((gene) => (
+                  <button
+                    key={gene}
+                    onClick={() => {
+                      setQuery(gene)
+                      setSearchParams({ gene })
+                    }}
+                  >
+                    {gene}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-
-  {suggestions.length > 0 && (
-    <div className="gene-suggestions">
-      {suggestions.map((gene) => (
-        <button
-          key={gene}
-          onClick={() => {
-            setQuery(gene)
-            setSelectedGene(gene)
-            setNotFound(false)
-            setSearchParams({ gene })
-          }}
-        >
-          {gene}
-        </button>
-      ))}
-    </div>
-  )}
-</div>
         </section>
 
         {loadError && (
           <div className="gene-not-found">
-            Gene data could not be loaded.
+            Mouse gene index could not be loaded.
+          </div>
+        )}
+
+        {loadingGene && (
+          <div className="gene-not-found">
+            Loading gene data...
           </div>
         )}
 

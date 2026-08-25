@@ -1,0 +1,15 @@
+{
+  "description": "Solute carrier family 1 member 3",
+  "meanExpression": 3.12,
+  "percentExpressed": 79.6,
+  "populations": [
+    { "name": "ASTRO-1", "expression": 4.2 },
+    { "name": "ASTRO-2", "expression": 3.7 },
+    { "name": "ASTRO-3", "expression": 3.1 }
+  ],
+  "regions": [
+    { "name": "Prefrontal cortex", "expression": 3.9 },
+    { "name": "Hippocampus", "expression": 3.5 },
+    { "name": "Temporal cortex", "expression": 3.0 }
+  ]
+}

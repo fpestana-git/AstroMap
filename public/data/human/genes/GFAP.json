@@ -1,0 +1,15 @@
+{
+  "description": "Glial fibrillary acidic protein",
+  "meanExpression": 2.45,
+  "percentExpressed": 61.8,
+  "populations": [
+    { "name": "ASTRO-3", "expression": 4.1 },
+    { "name": "ASTRO-2", "expression": 2.8 },
+    { "name": "ASTRO-1", "expression": 1.9 }
+  ],
+  "regions": [
+    { "name": "Hippocampus", "expression": 3.3 },
+    { "name": "Temporal cortex", "expression": 2.7 },
+    { "name": "Prefrontal cortex", "expression": 2.3 }
+  ]
+}

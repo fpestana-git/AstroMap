@@ -1,0 +1,19 @@
+{
+  "description": "Solute carrier family 1 member 3",
+  "meanExpression": 2.91,
+  "percentExpressed": 81.2,
+  "populations": [
+    { "name": "ASTRO-CTX-1", "expression": 4.2 },
+    { "name": "ASTRO-HPF-1", "expression": 3.7 },
+    { "name": "ASTRO-CTX-2", "expression": 3.4 },
+    { "name": "ASTRO-TH-1", "expression": 2.6 },
+    { "name": "ASTRO-CNU-1", "expression": 2.2 }
+  ],
+  "regions": [
+    { "name": "Isocortex", "expression": 4.0 },
+    { "name": "Hippocampal formation", "expression": 3.5 },
+    { "name": "Thalamus", "expression": 2.7 },
+    { "name": "Cerebral nuclei", "expression": 2.4 },
+    { "name": "Hypothalamus", "expression": 2.0 }
+  ]
+}
