@@ -1,5 +1,6 @@
+import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 type ExpressionEntry = {
   name: string
@@ -17,7 +18,6 @@ type GeneData = {
 type GeneDatabase = Record<string, GeneData>
 
 function HumanGenes() {
-  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
 
   const geneFromUrl = searchParams.get('gene') || ''
@@ -98,28 +98,7 @@ function HumanGenes() {
 
   return (
     <div className="atlas-page">
-      <header className="navbar">
-        <button className="logo-button" onClick={() => navigate('/')}>
-          AstroMap
-        </button>
-
-        <nav>
-          <button onClick={() => navigate('/human')}>
-            Overview
-          </button>
-
-          <button>Genes</button>
-          <button onClick={() => navigate('/human/populations')}>
-            Populations
-          </button>
-          <button onClick={() => navigate('/human/regions')}>
-            Brain regions
-          </button>
-          <button onClick={() => navigate('/human/datasets')}>
-            Datasets
-          </button>
-        </nav>
-      </header>
+      <AtlasNavbar species="human" />
 
       <main>
         <section className="gene-hero">

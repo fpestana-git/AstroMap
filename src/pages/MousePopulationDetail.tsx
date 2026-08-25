@@ -1,3 +1,4 @@
+import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -53,33 +54,7 @@ function MousePopulationDetail() {
 
   return (
     <div className="atlas-page">
-      <header className="navbar">
-        <button className="logo-button" onClick={() => navigate('/')}>
-          AstroMap
-        </button>
-
-        <nav>
-          <button onClick={() => navigate('/mouse')}>Overview</button>
-
-          <button onClick={() => navigate('/mouse/genes')}>
-            Genes
-          </button>
-
-          <button onClick={() => navigate('/mouse/populations')}>
-            Populations
-          </button>
-
-          <button onClick={() => navigate('/mouse/regions')}>
-            Brain regions
-          </button>
-          <button onClick={() => navigate('/mouse/spatial')}>
-            Spatial
-          </button>
-          <button onClick={() => navigate('/mouse/datasets')}>
-            Datasets
-          </button>
-        </nav>
-      </header>
+      <AtlasNavbar species="mouse" />
 
       <main>
         {loading && (

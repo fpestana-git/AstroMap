@@ -1,5 +1,5 @@
+import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 type Dataset = {
   id: string
@@ -14,7 +14,6 @@ type Dataset = {
 }
 
 function HumanDatasets() {
-  const navigate = useNavigate()
 
   const [datasets, setDatasets] = useState<Dataset[]>([])
   const [loading, setLoading] = useState(true)
@@ -47,31 +46,7 @@ function HumanDatasets() {
 
   return (
     <div className="atlas-page">
-      <header className="navbar">
-        <button className="logo-button" onClick={() => navigate('/')}>
-          AstroMap
-        </button>
-
-        <nav>
-          <button onClick={() => navigate('/human')}>
-            Overview
-          </button>
-
-          <button onClick={() => navigate('/human/genes')}>
-            Genes
-          </button>
-
-          <button onClick={() => navigate('/human/populations')}>
-            Populations
-          </button>
-
-          <button onClick={() => navigate('/human/regions')}>
-            Brain regions
-          </button>
-
-          <button>Datasets</button>
-        </nav>
-      </header>
+      <AtlasNavbar species="human" />
 
       <main>
         <section className="gene-hero">

@@ -1,3 +1,4 @@
+import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -44,29 +45,7 @@ function HumanPopulations() {
 
   return (
     <div className="atlas-page">
-      <header className="navbar">
-        <button className="logo-button" onClick={() => navigate('/')}>
-          AstroMap
-        </button>
-
-        <nav>
-          <button onClick={() => navigate('/human')}>
-            Overview
-          </button>
-
-          <button onClick={() => navigate('/human/genes')}>
-            Genes
-          </button>
-
-          <button>Populations</button>
-          <button onClick={() => navigate('/human/regions')}>
-            Brain regions
-          </button>
-          <button onClick={() => navigate('/human/datasets')}>
-            Datasets
-          </button>
-        </nav>
-      </header>
+      <AtlasNavbar species="human" />
 
       <main>
         <section className="gene-hero">

@@ -1,5 +1,5 @@
+import AtlasNavbar from '../components/AtlasNavbar'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 type SpatialSection = {
   id: string
@@ -11,7 +11,7 @@ type SpatialSection = {
 }
 
 function MouseSpatial() {
-  const navigate = useNavigate()
+  
 
   const [sections, setSections] = useState<SpatialSection[]>([])
   const [selectedSectionId, setSelectedSectionId] = useState('')
@@ -56,34 +56,7 @@ function MouseSpatial() {
 
   return (
     <div className="atlas-page">
-      <header className="navbar">
-        <button className="logo-button" onClick={() => navigate('/')}>
-          AstroMap
-        </button>
-
-        <nav>
-          <button onClick={() => navigate('/mouse')}>
-            Overview
-          </button>
-
-          <button onClick={() => navigate('/mouse/genes')}>
-            Genes
-          </button>
-
-          <button onClick={() => navigate('/mouse/populations')}>
-            Populations
-          </button>
-
-          <button onClick={() => navigate('/mouse/regions')}>
-            Brain regions
-          </button>
-
-          <button>Spatial</button>
-          <button onClick={() => navigate('/mouse/datasets')}>
-            Datasets
-          </button>
-        </nav>
-      </header>
+      <AtlasNavbar species="mouse" />
 
       <main>
         <section className="gene-hero">
