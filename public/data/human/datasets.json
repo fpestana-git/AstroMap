@@ -1,0 +1,46 @@
+[
+  {
+    "id": "study-01",
+    "name": "Study 01",
+    "year": 2021,
+    "technology": "10x Chromium",
+    "assay": "snRNA-seq",
+    "nCells": 84521,
+    "nLibraries": 18,
+    "coverage": "Multiple cortical regions",
+    "reference": "Example reference"
+  },
+  {
+    "id": "study-02",
+    "name": "Study 02",
+    "year": 2022,
+    "technology": "10x Chromium",
+    "assay": "snRNA-seq",
+    "nCells": 126843,
+    "nLibraries": 27,
+    "coverage": "Cortex and hippocampus",
+    "reference": "Example reference"
+  },
+  {
+    "id": "study-03",
+    "name": "Study 03",
+    "year": 2023,
+    "technology": "10x Chromium",
+    "assay": "snRNA-seq",
+    "nCells": 97364,
+    "nLibraries": 21,
+    "coverage": "Multiple brain regions",
+    "reference": "Example reference"
+  },
+  {
+    "id": "study-04",
+    "name": "Study 04",
+    "year": 2024,
+    "technology": "10x Chromium",
+    "assay": "snRNA-seq",
+    "nCells": 112578,
+    "nLibraries": 24,
+    "coverage": "Cortical and subcortical regions",
+    "reference": "Example reference"
+  }
+]

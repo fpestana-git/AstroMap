@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Prefrontal-cortex",
+    "name": "Prefrontal cortex",
+    "abbreviation": "PFC",
+    "nCells": 48215,
+    "nPopulations": 3,
+    "description": "Astrocyte populations represented across prefrontal cortical samples.",
+    "topPopulations": ["ASTRO-1", "ASTRO-2"]
+  },
+  {
+    "id": "Temporal-cortex",
+    "name": "Temporal cortex",
+    "abbreviation": "TCX",
+    "nCells": 36142,
+    "nPopulations": 3,
+    "description": "Astrocyte diversity across temporal cortical samples.",
+    "topPopulations": ["ASTRO-1", "ASTRO-3"]
+  },
+  {
+    "id": "Hippocampus",
+    "name": "Hippocampus",
+    "abbreviation": "HIP",
+    "nCells": 29486,
+    "nPopulations": 3,
+    "description": "Astrocyte populations represented across hippocampal samples.",
+    "topPopulations": ["ASTRO-1", "ASTRO-3"]
+  },
+  {
+    "id": "Caudate-putamen",
+    "name": "Caudate putamen",
+    "abbreviation": "CP",
+    "nCells": 21853,
+    "nPopulations": 2,
+    "description": "Astrocyte populations represented within striatal samples.",
+    "topPopulations": ["ASTRO-1", "ASTRO-2"]
+  }
+]

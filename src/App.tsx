@@ -10,6 +10,12 @@ import MouseRegions from './pages/MouseRegions'
 import MouseRegionDetail from './pages/MouseRegionDetail'
 import MouseSpatial from './pages/MouseSpatial'
 import MouseDatasets from './pages/MouseDatasets'
+import HumanGenes from './pages/HumanGenes'
+import HumanPopulations from './pages/HumanPopulations'
+import HumanPopulationDetail from './pages/HumanPopulationDetail'
+import HumanRegions from './pages/HumanRegions'
+import HumanRegionDetail from './pages/HumanRegionDetail'
+import HumanDatasets from './pages/HumanDatasets'
 
 function HomePage() {
   const navigate = useNavigate()
@@ -148,6 +154,27 @@ function App() {
         element={<MouseDatasets />}
       />
       <Route path="/human" element={<HumanAtlas />} />
+      <Route path="/human/genes" element={<HumanGenes />} />
+      <Route
+        path="/human/populations"
+        element={<HumanPopulations />}
+      />
+      <Route
+        path="/human/populations/:populationId"
+        element={<HumanPopulationDetail />}
+      />
+      <Route
+        path="/human/regions"
+        element={<HumanRegions />}
+      />
+      <Route
+        path="/human/regions/:regionId"
+        element={<HumanRegionDetail />}
+      />
+      <Route
+        path="/human/datasets"
+        element={<HumanDatasets />}
+      />
     </Routes>
   )
 }

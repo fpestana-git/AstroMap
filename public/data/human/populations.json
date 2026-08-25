@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ASTRO-1",
+    "name": "ASTRO-1",
+    "region": "Multiple regions",
+    "nCells": 68421,
+    "description": "A broadly distributed human astrocyte population with homeostatic transcriptional features.",
+    "markers": ["AQP4", "SLC1A3", "SLC1A2", "ALDOC"]
+  },
+  {
+    "id": "ASTRO-2",
+    "name": "ASTRO-2",
+    "region": "Cerebral cortex",
+    "nCells": 52784,
+    "description": "A cortical astrocyte population with a distinct transcriptional profile.",
+    "markers": ["SLC1A3", "GLUL", "GJA1", "S100B"]
+  },
+  {
+    "id": "ASTRO-3",
+    "name": "ASTRO-3",
+    "region": "Multiple regions",
+    "nCells": 31692,
+    "description": "A human astrocyte state enriched for reactive and intermediate-filament-associated genes.",
+    "markers": ["GFAP", "VIM", "AQP4", "S100B"]
+  }
+]
