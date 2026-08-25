@@ -84,6 +84,10 @@ nav button {
 nav button:hover {
   color: #5b4ad8;
 }
+nav button.active {
+  color: #5745cf;
+  font-weight: 700;
+}
 /* Hero */
 
 .hero {
@@ -338,6 +342,48 @@ nav button:hover {
 
   cursor: pointer;
 }
+
+/* Species switcher */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.species-switcher {
+  padding: 3px;
+
+  display: flex;
+  gap: 2px;
+
+  background: #f1f2f6;
+  border-radius: 8px;
+}
+
+.species-switcher button {
+  padding: 6px 10px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #7a8393;
+
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.species-switcher button.active {
+  background: #ffffff;
+  color: #5745cf;
+
+  box-shadow: 0 1px 4px rgba(44, 54, 76, 0.12);
+}
+
 
 .atlas-hero {
   padding: 100px 8% 85px;

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 type AtlasNavbarProps = {
   species: 'mouse' | 'human'
@@ -6,42 +6,89 @@ type AtlasNavbarProps = {
 
 function AtlasNavbar({ species }: AtlasNavbarProps) {
   const navigate = useNavigate()
+  const location = useLocation()
 
   const isMouse = species === 'mouse'
 
+  function isActive(path: string) {
+    if (path === `/${species}`) {
+      return location.pathname === path
+    }
+
+    return location.pathname.startsWith(path)
+  }
+
   return (
     <header className="navbar">
-      <button
-        className="logo-button"
-        onClick={() => navigate('/')}
-      >
-        AstroMap
-      </button>
+      <div className="navbar-brand">
+        <button
+          className="logo-button"
+          onClick={() => navigate('/')}
+        >
+          AstroMap
+        </button>
+
+        <div className="species-switcher">
+          <button
+            className={species === 'mouse' ? 'active' : ''}
+            onClick={() => navigate('/mouse')}
+          >
+            Mouse
+          </button>
+
+          <button
+            className={species === 'human' ? 'active' : ''}
+            onClick={() => navigate('/human')}
+          >
+            Human
+          </button>
+        </div>
+      </div>
 
       <nav>
-        <button onClick={() => navigate(`/${species}`)}>
+        <button
+          className={isActive(`/${species}`) ? 'active' : ''}
+          onClick={() => navigate(`/${species}`)}
+        >
           Overview
         </button>
 
-        <button onClick={() => navigate(`/${species}/genes`)}>
+        <button
+          className={isActive(`/${species}/genes`) ? 'active' : ''}
+          onClick={() => navigate(`/${species}/genes`)}
+        >
           Genes
         </button>
 
-        <button onClick={() => navigate(`/${species}/populations`)}>
+        <button
+          className={
+            isActive(`/${species}/populations`) ? 'active' : ''
+          }
+          onClick={() => navigate(`/${species}/populations`)}
+        >
           Populations
         </button>
 
-        <button onClick={() => navigate(`/${species}/regions`)}>
+        <button
+          className={isActive(`/${species}/regions`) ? 'active' : ''}
+          onClick={() => navigate(`/${species}/regions`)}
+        >
           Brain regions
         </button>
 
         {isMouse && (
-          <button onClick={() => navigate('/mouse/spatial')}>
+          <button
+            className={isActive('/mouse/spatial') ? 'active' : ''}
+            onClick={() => navigate('/mouse/spatial')}
+          >
             Spatial
           </button>
         )}
 
-        <button onClick={() => navigate(`/${species}/datasets`)}>
+        <button
+          className={isActive(`/${species}/datasets`) ? 'active' : ''}
+          onClick={() => navigate(`/${species}/datasets`)}
+        >
           Datasets
         </button>
       </nav>
